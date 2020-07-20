@@ -37,6 +37,7 @@ public class HelloProcessor extends AbstractProcessor {
     @Override
     public boolean process(Set<? extends TypeElement> annotations, RoundEnvironment roundEnv) {
         for (TypeElement element : annotations) {//遍历扫描到的注解集合
+
             if (element.getQualifiedName().toString().equals(HelloAnnotation.class.getCanonicalName())) {
                 // 当前注解是我们自定义的注解，也就是HelloAnnotation时，执行下列代码
                 TypeSpec helloWorld = TypeSpec.classBuilder("HelloWorld")//声明类名为HelloWorld
