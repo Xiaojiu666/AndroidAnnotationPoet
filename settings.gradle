@@ -1,2 +1,3 @@
+include ':lib_dagger'
 include ':app', ':lib_javaannotation', ':lib_java_poet'
 rootProject.name='JavaPoetDemo'

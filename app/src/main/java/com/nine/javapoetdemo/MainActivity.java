@@ -7,13 +7,15 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
+import com.nine.Person;
 import com.nine.lib_javapoet.Bind;
 import com.nine.lib_javapoet.HelloAnnotation;
-import com.nine.lib_jvap_oet.HelloWorld;
-
 import java.io.File;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
+
+import javax.inject.Inject;
+
 @HelloAnnotation()
 @Bind(10)
 public class MainActivity extends AppCompatActivity {
@@ -28,7 +30,8 @@ public class MainActivity extends AppCompatActivity {
 
 
     private String demo;
-
+    @Inject
+    Person person;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,13 +39,15 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         TextView tv = findViewById(R.id.tv);
         String str1 = "Aaaaaa";
-        str1 += HelloWorld.hello1() + " ";
-        str1 += HelloWorld.hello2() + " ";
-        str1 += HelloWorld.hello3();
+//        str1 += HelloWorld.hello1() + " ";
+//        str1 += HelloWorld.hello2() + " ";
+//        str1 += HelloWorld.hello3();
         tv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 initAn();
+                new Family().initFamily();
+
             }
         });
         tv.setText(str1);
